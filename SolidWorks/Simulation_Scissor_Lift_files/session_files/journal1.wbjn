@@ -1,0 +1,31 @@
+# encoding: utf-8
+# 2023 R1
+SetScriptVersion(Version="23.1.153")
+fileType1 = GetFileType(Name="GeometryFileType")
+ImportFile(
+    FilePath="D:/pneumatic-hydraulic-scissor-lift-mechanism/Pneumatic Hydraulic Scissor Lift Mechanism.SLDASM",
+    FileType=fileType1)
+system1 = GetSystem(Name="Geometry")
+system1.Delete()
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system2 = template1.CreateSystem()
+geometry1 = system2.GetContainer(ComponentName="Geometry")
+geometry1.SetFile(FilePath="D:/pneumatic-hydraulic-scissor-lift-mechanism/Pneumatic Hydraulic Scissor Lift Mechanism.SLDASM")
+geometry1.Edit(IsDiscoveryGeometry=True)
+geometry1.Edit(IsDiscoveryGeometry=True)
+modelComponent1 = system2.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system2.GetContainer(ComponentName="Model")
+model1.Edit()
+Save(Overwrite=True)
+Save(Overwrite=True)
+Save(Overwrite=True)
+Save(Overwrite=True)
+Save(Overwrite=True)
+Save(Overwrite=True)
+Save(Overwrite=True)
+model1.Exit()
+geometry1.Exit()
+Save(Overwrite=True)
